@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player - Felissa</title>
+    <title>3 Music Player — Felissa</title>
     <style>
-        /* Font Sans-Serif Modern */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-        
         body {
             text-align: center;
             justify-content: center;
@@ -17,19 +14,11 @@
             padding: 0;
             min-height: 100vh;
             color: #333;
-            font-weight: 400;
-            line-height: 1.6;
         }
 
         .logo {
             width: 65px;
             margin-top: 20px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
         }
 
         h1 {
@@ -37,8 +26,7 @@
             margin-top: 10px;
             padding: 15px;
             font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-weight: bold;
             
             background: 
              linear-gradient(
@@ -47,18 +35,14 @@
               #ffa6c9,
               #c988ff,
               #7896ff,
-              #6bc5ff,
-              #ffa6c9,
-              #c988ff,
-              #ff6b6b
+              #6bc5ff
             );
 
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             background-size: 300% auto;
-            animation: gradientAnimation 4s linear infinite, blink 2s infinite;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            animation: gradientAnimation 4s linear infinite;
         }
 
         @keyframes gradientAnimation{
@@ -73,24 +57,12 @@
             }
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
         .intro {
             margin: 20px auto;
             max-width: 600px;
             padding: 0 20px;
             line-height: 1.6;
             font-size: 1.1rem;
-            animation: fadeIn 1.5s ease-out;
-            font-weight: 400;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .kartu-wrapper {
@@ -103,19 +75,17 @@
 
         .card {
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             text-align: center;
             padding: 25px;
             width: 280px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
+            transition: all 0.4s;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            font-weight: 400;
         }
 
         .card:hover {
-            transform: translateY(-15px) scale(1.03);
+            transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
 
@@ -125,11 +95,6 @@
             border-radius: 15px;
             object-fit: cover;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .card:hover img {
-            transform: scale(1.05);
         }
 
         .foto-diri img {
@@ -139,10 +104,8 @@
             margin-top: 10px;
             object-fit: cover;
             border: 4px solid #d697e7;
-            box-shadow: 0 0 20px rgba(210, 150, 230, 0.6);
         }
 
-        /* Cute Custom Audio Player */
         .audio-container {
             position: relative;
             margin-top: 20px;
@@ -160,40 +123,25 @@
             outline: none;
         }
 
-        /* Customize audio controls */
         audio::-webkit-media-controls-panel {
             background: linear-gradient(135deg, #ffd6e7, #d6e5ff);
             border-radius: 50px;
-            font-family: 'Inter', sans-serif;
         }
 
         audio::-webkit-media-controls-play-button {
             background-color: #ff6b9d;
             border-radius: 50%;
-            margin-right: 10px;
         }
 
         audio::-webkit-media-controls-current-time-display,
         audio::-webkit-media-controls-time-remaining-display {
             color: #5a2d7a;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
+            font-weight: bold;
         }
 
         audio::-webkit-media-controls-timeline {
             background-color: #e0d0ff;
             border-radius: 25px;
-            margin: 0 10px;
-        }
-
-        audio::-webkit-media-controls-volume-slider {
-            background-color: #e0d0ff;
-            border-radius: 25px;
-        }
-
-        audio::-webkit-media-controls-mute-button {
-            background-color: #7896ff;
-            border-radius: 50%;
         }
 
         .kartu-content {
@@ -204,22 +152,19 @@
             margin: 15px 0 8px;
             color: #5a2d7a;
             font-size: 1.3rem;
-            font-weight: 600;
-            letter-spacing: -0.3px;
+            font-weight: bold;
         }
 
         .kartu-content p {
             margin: 8px 0;
             line-height: 1.5;
             color: #6c567b;
-            font-weight: 400;
         }
 
         .pesan p {
             font-size: 0.95rem;
             text-align: left;
             padding: 0 10px;
-            font-weight: 400;
         }
 
         footer {
@@ -228,47 +173,12 @@
             background: rgba(90, 45, 122, 0.15);
             color: #5a2d7a;
             font-size: 0.9rem;
-            backdrop-filter: blur(5px);
-            font-weight: 400;
-        }
-
-        /* Floating hearts animation */
-        .hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            opacity: 0;
-            animation: fall 10s linear infinite;
-            font-family: sans-serif;
-        }
-
-        @keyframes fall {
-            0% {
-                top: -10%;
-                opacity: 1;
-            }
-            100% {
-                top: 100%;
-                opacity: 0;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating hearts background -->
-    <div class="hearts" id="hearts"></div>
-    
     <img src="logo.png" alt="Logo" class="logo">
-    <h1>Tugas Felissa</h1>
+    <h1>3 Music Player — Felissa</h1>
     <p class="intro">Hai namaku Felissa absen 7 dan ini adalah AOP.</p>
 
     <div class="kartu-wrapper">
@@ -280,7 +190,6 @@
                 <div class="audio-container">
                     <audio controls>
                         <source src="greedy.mp3" type="audio/mpeg">
-                        Browser Anda tidak mendukung elemen audio.
                     </audio>
                 </div>
             </div>
@@ -294,7 +203,6 @@
                 <div class="audio-container">
                     <audio controls>
                         <source src="bags.mp3" type="audio/mpeg">
-                        Browser Anda tidak mendukung elemen audio.
                     </audio>
                 </div>
             </div>
@@ -308,7 +216,6 @@
                 <div class="audio-container">
                     <audio controls>
                         <source src="ever.mp3" type="audio/mpeg">
-                        Browser Anda tidak mendukung elemen audio.
                     </audio>
                 </div>
             </div>
@@ -329,47 +236,5 @@
     <footer>
         &copy; 2023 Music Player - Felissa | AOP Project
     </footer>
-
-    <script>
-        // Create floating hearts
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts');
-            const colors = ['#ff6b9d', '#ffa6c9', '#c988ff', '#7896ff', '#6bc5ff'];
-            
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.innerHTML = '❤';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDelay = Math.random() * 10 + 's';
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
-                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                heartsContainer.appendChild(heart);
-            }
-        }
-        
-        // Add typing effect to title
-        function typeWriter() {
-            const title = document.querySelector('h1');
-            const text = title.textContent;
-            title.textContent = '';
-            let i = 0;
-            
-            function type() {
-                if (i < text.length) {
-                    title.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, 100);
-                }
-            }
-            type();
-        }
-        
-        // Initialize effects
-        window.onload = function() {
-            createHearts();
-            typeWriter();
-        };
-    </script>
 </body>
 </html>
